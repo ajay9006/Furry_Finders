@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Health Cards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #aacbed;
+      color: #333333;
+    }
+    .heading {
+      text-align: center;
+      text-decoration: underline;
+      text-decoration-color: #e4e5ea;
+      text-decoration-style: line;
+      margin: 40px 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      color: #355dd7;
+    }
+    .pet-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+    .pet-card {
+      background-color: #ffffff;
+      margin: auto;
+      width: 27vw;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+    }
+    .pet-card img {
+      width: 100%;
+      height: 300px; 
+      object-fit: cover; 
+    }
+    .pet-card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      margin: 20px 0 10px;
+    }
+    .pet-card p {
+      padding: 0 20px 20px;
+      color: #666666;
+      flex-grow: 1;
+    }
+    .pet-card a {
+      display: inline-block;
+      width: 90px;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background-color: #6699d0;
+      color: #FFFFFF;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .pet-card a:hover {
+      background-color: #2353ba;
+    }
+
+    @media (max-width: 768px) {
+      .pet-grid {
+        grid-template-columns: repeat(1, 1fr); 
+      }
+      .heading {
+        font-size: 28px; /* Smaller font size for mobile */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Heading -->
+  <h1 class="heading">Health Tips By Experts</h1>
+
+  <!-- Pet Cards Grid -->
+  <div class="pet-grid">
+    <div class="pet-card">
+      <img src="dog.jpg" alt="Dog">
+      <h3>Dog</h3>
+      <p>Understanding castration in dogs and essential health tips.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div class="pet-card">
+      <img src="cat.jpg" alt="Cat">
+      <h3>Cat</h3>
+      <p>Learn about cat castration and how to keep your feline healthy.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div class="pet-card">
+      <img src="rabbit.jpg" alt="Rabbit">
+      <h3>Rabbit</h3>
+      <p>Health tips and castration guide for rabbits.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div class="pet-card">
+      <img src="cow.jpg" alt="Cow">
+      <h3>Cow</h3>
+      <p>Essential health practices for cows, including castration.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div class="pet-card">
+      <img src="buff.jpg" alt="Buffalo">
+      <h3>Buffalo</h3>
+      <p>Health and castration tips for buffaloes.</p>
+      <a href="#">Read More</a>
+    </div>
+    <div class="pet-card">
+      <img src="parrot.jpg" alt="Parrot">
+      <h3>Parrot</h3>
+      <p>Keeping your parrot healthy and happy.</p>
+      <a href="#">Read More</a>
+    </div>
+  </div>
+</body>
+</html>

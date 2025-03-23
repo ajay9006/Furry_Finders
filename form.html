@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furry Finders - Buyer & Seller Form</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            color: white;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            background: #f7f1e3;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+        h2, h3 {
+            color: #ff5733;
+            font-family: 'Verdana', sans-serif;
+        }
+        h2 {
+    white-space: nowrap;
+}
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: #4a69bd;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #6a89cc;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+        button {
+            background: #ff9f43;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Furry Finders</h2>
+        <label for="userType">Are you a Buyer or a Seller?</label>
+        <select id="userType" onchange="toggleForm()">
+            <option value="">Select</option>
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
+        </select>
+        
+        <form id="buyerForm" style="display: none;">
+            <h3>Buyer Form</h3>
+            <div class="form-group">
+                <label for="buyerName">Full Name:</label>
+                <input type="text" id="buyerName" required>
+            </div>
+            <div class="form-group">
+                <label for="buyerContact">Contact Number:</label>
+                <input type="text" id="buyerContact" required>
+            </div>
+            <div class="form-group">
+                <label for="buyerLocation">Location:</label>
+                <input type="text" id="buyerLocation" required>
+            </div>
+            <div class="form-group">
+                <label for="petType">Pet Interested In:</label>
+                <select id="petType">
+                    <option>Dog</option>
+                    <option>Cat</option>
+                    <option>Parrot</option>
+                    <option>Buffalo</option>
+                    <option>Goat</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="buyerBreed">Preferred Breed:</label>
+                <input type="text" id="buyerBreed">
+            </div>
+            <div class="form-group">
+                <label for="buyerAge">Preferred Age:</label>
+                <input type="number" id="buyerAge">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        
+        <form id="sellerForm" style="display: none;">
+            <h3>Seller Form</h3>
+            <div class="form-group">
+                <label for="sellerName">Full Name:</label>
+                <input type="text" id="sellerName" required>
+            </div>
+            <div class="form-group">
+                <label for="sellerContact">Contact Number:</label>
+                <input type="text" id="sellerContact" required>
+            </div>
+            <div class="form-group">
+                <label for="sellerLocation">Location:</label>
+                <input type="text" id="sellerLocation" required>
+            </div>
+            <div class="form-group">
+                <label for="petForSale">Pet for Sale:</label>
+                <select id="petForSale">
+                    <option>Dog</option>
+                    <option>Cat</option>
+                    <option>Parrot</option>
+                    <option>Buffalo</option>
+                    <option>Goat</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sellerBreed">Breed:</label>
+                <input type="text" id="sellerBreed">
+            </div>
+            <div class="form-group">
+                <label for="sellerAge">Age:</label>
+                <input type="number" id="sellerAge">
+            </div>
+            <div class="form-group">
+                <label for="petPrice">Price:</label>
+                <input type="text" id="petPrice" required>
+            </div>
+            <div class="form-group">
+                <label for="petDescription">Pet Description:</label>
+                <textarea id="petDescription" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="petDocuments">Upload Vaccination Document (if available):</label>
+                <input type="file" id="petDocuments">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <script>
+        function toggleForm() {
+            let userType = document.getElementById("userType").value;
+            document.getElementById("buyerForm").style.display = userType === "buyer" ? "block" : "none";
+            document.getElementById("sellerForm").style.display = userType === "seller" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

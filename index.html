@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furry Finders</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="slomo.css"> 
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            overflow-x: hidden;
+            background-color: #aacbed;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6f91;
+        }
+
+        /* Image Slider */
+        .slider {
+           margin-top: 20px;
+            width: 100vw;
+            height: 70vh; 
+            overflow: hidden;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .slides {
+            display: flex;
+            width: 400%; 
+            height: 100%;
+            transition: transform 2s ease-in-out;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100%;
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        /* Health Cards Section */
+        .heading {
+            text-align: center;
+            text-decoration: underline;
+            text-decoration-color: #e4e5ea;
+            text-decoration-style: line;
+            margin: 40px 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            font-weight: bold;
+            color: #355dd7;
+        }
+
+        .pet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .pet-card {
+            background-color: #ffffff;
+            margin: auto;
+            width: 27vw;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pet-card img {
+            width: 100%;
+            height: 300px; 
+            object-fit: cover; 
+        }
+
+        .pet-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            margin: 20px 0 10px;
+        }
+
+        .pet-card p {
+            padding: 0 20px 20px;
+            color: #666;
+            flex-grow: 1;
+        }
+
+        .pet-card a {
+            display: inline-block;
+            width: 90px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background-color: #6699d0;
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .pet-card a:hover {
+            background-color: #2353ba;
+        }
+
+        @media (max-width: 768px) {
+            .pet-grid {
+                grid-template-columns: repeat(1, 1fr); 
+            }
+            .heading {
+                font-size: 28px;
+            }
+        }
+        .categories p{
+      font-size:30px;
+}
+.categories {
+    background-color: #fbe2e2;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.box {
+    margin-top: 10px;
+    width: 90%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap:90px;
+}
+
+.content img {
+    width: 190px; 
+    height:100%;
+    gap:20px;
+}
+.image-wrapper img {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%; 
+    object-fit: cover;  
+}
+
+.footer {
+    background-color: #012a4a;
+    color: white;
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: background-color 0.3s ease-in-out;
+}
+.footer:hover {
+    background-color: #01497c;
+}
+.footer-column {
+    width: 22%;
+}
+.footer-column h3 {
+    margin-bottom: 15px;
+    transition: color 0.3s ease-in-out;
+}
+.footer-column a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease-in-out;
+}
+.footer-column a:hover {
+    color: #ffc300;
+}
+.social-container {
+    text-align: center;
+    background-color: #011a3d;
+    padding: 20px;
+}
+.social-container h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #ffc300;
+}
+.subscribe {
+    display: flex;
+    align-items: center;
+}
+.subscribe input {
+    padding: 8px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+}
+.subscribe button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+.subscribe button:hover {
+    background-color: darkred;
+}
+.download-icons {
+    margin-top: 10px;
+}
+.download-icons img {
+    width: 120px;
+    margin-right: 10px;
+}
+.copyright {
+    text-align: center;
+    padding: 20px;
+    background-color: #011a3d;
+    color: white;
+}
+@media screen and (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+    }
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Furry Finders</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slomo.html">Category</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="FAQs.html">FAQs</a></li>
+        </ul>
+    </nav>
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide active" style="background-image: url('im1.jpg');"></div>
+            <div class="slide" style="background-image: url('im2.jpg');"></div>
+            <div class="slide" style="background-image: url('im3.jpg');"></div>
+            <div class="slide" style="background-image: url('im4.jpg');"></div>
+        </div>
+    </div>
+
+
+
+
+    <div class="categories"> <!-- Fixed class name -->
+        <p><b>Categories</b></p>
+        <div class="box1 box">
+            <div class="content">
+               <a href="dog-breed.html"> <img src="dogo.png" alt="Dog"></a>
+               <a href=""><img src="catie.png" alt="Cat"></a> 
+               <a href=""><img src="rab.png" alt="Rabbit"></a> 
+            </div>
+        </div> <!-- Properly closed div -->
+
+        <div class="box2 box">
+            <div class="content">
+                 <a href=""><img src="bird-icom.png"></a>
+                <div class="image-wrapper">
+                  <a href=""> <img src="cow-img.webp" alt="Cow"></a> 
+                    
+                </div>
+                <div class="image-wrapper">
+                   <a href=""> <img src="buffalo-img.webp" alt="Buffalo"></a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Health Tips Section -->
+    <h1 class="heading">Health Tips By Experts</h1>
+
+    <div class="pet-grid">
+        <div class="pet-card">
+            <img src="dog.jpg" alt="Dog">
+            <h3>Dog</h3>
+            <p>Understanding castration in dogs and essential health tips.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="pet-card">
+            <img src="cat.jpg" alt="Cat">
+            <h3>Cat</h3>
+            <p>Learn about cat castration and how to keep your feline healthy.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="pet-card">
+            <img src="rabbit.jpg" alt="Rabbit">
+            <h3>Rabbit</h3>
+            <p>Health tips and castration guide for rabbits.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="pet-card">
+            <img src="cow.jpg" alt="Cow">
+            <h3>Cow</h3>
+            <p>Essential health practices for cows, including castration.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="pet-card">
+            <img src="buff.jpg" alt="Buffalo">
+            <h3>Buffalo</h3>
+            <p>Health and castration tips for buffaloes.</p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="pet-card">
+            <img src="parrot.jpg" alt="Parrot">
+            <h3>Parrot</h3>
+            <p>Keeping your parrot healthy and happy.</p>
+            <a href="#">Read More</a>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="contact.html">Contact Us</a>
+                <a href="faqs.html">FAQs & Return Policy</a>
+                <a href="#">Vet Consultation</a>
+                <a href="privacy.html" target="_blank">Privacy Policy</a>
+            </div>
+        
+            <div class="footer-column">
+                <div class="subscribe">
+                    <input type="email" id="email" placeholder="Enter your mail id">
+                    <button onclick="subscribeNewsletter()">SUBMIT</button>
+                </div>
+                <p>Reach us: <a href="mailto:support@furryFinder.com" style="color: white;">support@furryFinders.com</a></p>
+                <p>Join our FurryFinders community to get updates and expert advice.</p>
+            </div>
+        </div>
+        <div class="social-container">
+            <h3>Connect With Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025  All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll(".slide");
+        const totalSlides = slides.length;
+
+        function slideImages() {
+            slides.forEach(slide => slide.classList.remove("active"));
+            index = (index + 1) % totalSlides;
+            slides[index].classList.add("active");
+
+            document.querySelector(".slides").style.transform = `translateX(-${index * 100}vw)`;
+        }
+
+        setInterval(slideImages, 5000);
+
+        function subscribeNewsletter() {
+    const email = document.getElementById('email').value;
+    if (email) {    
+        alert('Email entered successfully');
+    } else {
+        alert('Please enter a valid email address.');
+    }
+}
+
+function showContactInfo() {
+    document.getElementById('info-container').innerHTML = `
+        <div class="info-box">
+            <h3>Contact Information</h3>
+            <p>Phone: 9999999999</p>
+            <p>Email: <a href="mailto:QWE@gmail.com">QWE@gmail.com</a></p>
+        </div>`;
+}
+
+function showFAQs() {
+    document.getElementById('info-container').innerHTML = `
+        <div class="info-box">
+            <h3>Frequently Asked Questions</h3>
+            <p><strong>Q: What should I feed my pet?</strong></p>
+            <p>A: Provide a balanced diet with vet-recommended pet food suitable for their age and breed.</p>
+            <p><strong>Q: How often should I take my pet to the vet?</strong></p>
+            <p>A: A routine check-up every 6-12 months is recommended, or immediately if they show signs of illness.</p>
+            <p><strong>Q: What are some common pet grooming tips?</strong></p>
+            <p>A: Regular brushing, bathing, and nail trimming are essential for maintaining your pet’s hygiene.</p>
+        </div>`;
+}
+
+    </script>
+
+</body>
+</html>
